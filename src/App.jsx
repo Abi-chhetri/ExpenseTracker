@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ExpenseProvider } from './context/ExpenseContext';
 import Navbar from './components/Nav';
-import Dashboard from './pages/UserDashboard.jsx'
-import AddExpensePage from "./pages/AddExpensePage.jsx";
-import HistoryPage from "./pages/HistoryPage.jsx";
+import Dashboard from './Pages/UserDashboard.jsx'
+import AddExpensePage from "./Pages/AddExpensePage.jsx";
+import HistoryPage from "./Pages/HistoryPage.jsx";
 import './App.css';
 
 function App() {
