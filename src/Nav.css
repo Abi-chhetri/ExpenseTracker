@@ -1,0 +1,184 @@
+:root {
+  --nav-bg:          #1f2937;
+  --nav-text:        #9ca3af;
+  --nav-text-hover:  #ffffff;
+  --nav-active:      #60a5fa;
+  --nav-active-bg:   rgba(96, 165, 250, 0.1);
+  --nav-hover-bg:    rgba(255, 255, 255, 0.07);
+  --nav-height:      56px;
+}
+
+/* Wrapper to hold both nav and drawer so they stick together */
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  background-color: var(--nav-bg);
+  height: var(--nav-height);
+  padding: 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.nav-brand {
+  color: var(--nav-text-hover);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: var(--nav-text-hover);
+  background-color: var(--nav-hover-bg);
+}
+
+.nav-links a.active-link {
+  color: var(--nav-active);
+  background-color: var(--nav-active-bg);
+}
+
+/* Hamburger button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--nav-text);
+  border-radius: 2px;
+  transition: background-color 0.15s ease;
+}
+
+.nav-hamburger:hover span {
+  background-color: var(--nav-text-hover);
+}
+
+/* Mobile drawer - Absolutely positioned below the navbar */
+.nav-drawer {
+  display: none;
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  background-color: var(--nav-bg);
+  padding: 8px 16px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-drawer a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 12px 12px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-drawer a:hover {
+  color: var(--nav-text-hover);
+  background-color: var(--nav-hover-bg);
+}
+
+.nav-drawer a.active-link {
+  color: var(--nav-active);
+  background-color: var(--nav-active-bg);
+}
+
+.nav-drawer.open {
+  display: flex;
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+/* Currency Select Defaults */
+.currency-select {
+  background-color: var(--nav-hover-bg);
+  color: var(--nav-text-hover);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  margin-left: 10px;
+  transition: border-color 0.15s ease;
+}
+
+.currency-select:hover,
+.currency-select:focus {
+  border-color: var(--nav-active);
+}
+
+.currency-select option {
+  background-color: var(--nav-bg);
+  color: var(--nav-text-hover);
+}
+
+/* Specific styling for the dropdown inside the mobile drawer */
+.mobile-currency {
+  margin-left: 0;
+  margin-top: 8px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* ── Responsive Rules ── */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .nav-links {
+    display: none; /* Hides desktop links */
+  }
+
+  .nav-hamburger {
+    display: flex; /* Shows hamburger */
+  }
+}
+
+/* Optional subtle animation for the mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
